@@ -49,24 +49,26 @@ class _FoodHomeState extends State<FoodHome> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: buildFloatingActionButton(),
-          bottomNavigationBar: buildBottomContainer()),
+          bottomNavigationBar: _bottomAppBar),
     );
   }
 
-  Container buildBottomContainer() {
-    return Container(
-      color: currentTheme.canvasColor,
-      child: TabBar(
+  Widget get _bottomAppBar => BottomAppBar(
+        notchMargin: 10,
+        shape: CircularNotchedRectangle(),
+        color: Colors.white,
+        child: TabBar(
+          tabs: <Widget>[
+            Tab(icon: Icon(Icons.home), text: "Home"),
+            Tab(icon: Icon(Icons.person), text: "Profile")
+          ],
+          indicatorColor: Colors.transparent,
           labelColor: currentTheme.errorColor,
           unselectedLabelColor: currentTheme.dividerColor,
           labelStyle: currentTheme.textTheme.headline5
               .copyWith(fontWeight: FontWeight.bold),
-          tabs: [
-            Tab(icon: Icon(Icons.home), text: "Home"),
-            Tab(icon: Icon(Icons.person), text: "Profile")
-          ]),
-    );
-  }
+        ),
+      );
 
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
