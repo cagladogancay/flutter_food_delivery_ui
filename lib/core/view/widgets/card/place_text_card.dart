@@ -6,7 +6,7 @@ class PlaceTextCard extends StatelessWidget {
   PlaceTextCard({Key key, @required this.text}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final dynamicWidth = MediaQuery.of(context).size.width * 0.01;
+    final dynamicWidth = MediaQuery.of(context).size.width * 0.02;
     final dynamicHeight = MediaQuery.of(context).size.height * 0.02;
     final currentTheme = Theme.of(context);
 
@@ -37,8 +37,8 @@ class PlaceTextCard extends StatelessWidget {
   Text buildTextSectorTitle(ThemeData currentTheme) {
     return Text(
       this.text,
-      style: currentTheme.primaryTextTheme.headline6,
-      textScaleFactor: 0.8,
+      textAlign: TextAlign.center,
+      style: currentTheme.primaryTextTheme.headline5,
     );
   }
 }
