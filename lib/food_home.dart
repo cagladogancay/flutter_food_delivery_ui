@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryflutter/core/init/constants/string_constants.dart';
+import 'package:fooddeliveryflutter/core/utility/view_helper.dart';
 import 'package:fooddeliveryflutter/food_body.dart';
 import 'package:fooddeliveryflutter/profile.dart';
 
@@ -10,12 +12,20 @@ class FoodHome extends StatefulWidget {
 }
 
 class _FoodHomeState extends State<FoodHome> {
+  ViewHelper viewHelper = ViewHelper.instance;
+  StringConstants stringConstants = StringConstants();
   int currentTab = 0;
   final List<Widget> screens = [
     FoodBody(),
     Cards(),
     Profile(),
   ];
+
+  ThemeData get currentTheme => Theme.of(context);
+  // Dynamic value is supported all device size. This  is same grid value.
+  double dynamicHeight(double val) => MediaQuery.of(context).size.height * val;
+  double dynamicWidth(double val) => MediaQuery.of(context).size.width * val;
+
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = FoodBody();
 
@@ -23,57 +33,23 @@ class _FoodHomeState extends State<FoodHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.dehaze,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
-        titleSpacing: 0,
+        centerTitle: false,
+        leading: buildMenuIconButton(),
         title: Container(
-          width: 150,
-          height: 25,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.purple.shade700,
-          ),
-          child: Container(
-            width: 113,
-            height: 18,
-            child: Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                    size: 14,
-                  ),
-                  Text(
-                    'Sector 12, Noida',
-                    style: TextStyle(
-                        fontFamily: 'Khula',
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-            ),
+          padding: EdgeInsets.all(dynamicWidth(0.02)),
+          decoration: ShapeDecoration(
+              shape: StadiumBorder(),
+              color: Theme.of(context).primaryColorDark),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              buildPlaceIcon(),
+              buildTextSectorTitle(),
+            ],
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          )
-        ],
+        actions: <Widget>[buildSearchIconButton()],
       ),
       backgroundColor: Colors.purple,
       body: PageStorage(
@@ -166,6 +142,42 @@ class _FoodHomeState extends State<FoodHome> {
         color: Colors.white,
         notchMargin: 10,
       ),
+    );
+  }
+
+  Icon buildPlaceIcon() {
+    return Icon(
+      Icons.location_on,
+      color: Colors.white,
+      size: dynamicHeight(0.02),
+    );
+  }
+
+  Text buildTextSectorTitle() {
+    return Text(
+      stringConstants.foodHomeTitleText,
+      style: currentTheme.primaryTextTheme.headline6,
+      textScaleFactor: 0.8,
+    );
+  }
+
+  IconButton buildMenuIconButton() {
+    return IconButton(
+      icon: Icon(
+        Icons.dehaze,
+        color: Colors.white,
+      ),
+      onPressed: () {},
+    );
+  }
+
+  IconButton buildSearchIconButton() {
+    return IconButton(
+      icon: Icon(
+        Icons.search,
+        color: Colors.white,
+      ),
+      onPressed: () {},
     );
   }
 }
