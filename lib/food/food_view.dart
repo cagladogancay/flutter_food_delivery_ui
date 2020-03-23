@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryflutter/core/view/widgets/card/place_text_card.dart';
-import 'package:fooddeliveryflutter/food_body/food_body.dart';
-import '../profile.dart';
+
 import './food_view_model.dart';
+import '../core/view/widgets/card/place_text_card.dart';
+import '../food_body/food_body.dart';
+import '../profile/profile.dart';
 
 class FoodView extends FoodViewModel {
   ThemeData get currentTheme => Theme.of(context);

@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryflutter/core/view/widgets/card/food_detail_card.dart';
 import 'package:fooddeliveryflutter/food_body/model/food.dart';
-
-import 'food_body/model/foodBrain.dart';
+import 'package:fooddeliveryflutter/food_body/model/foodBrain.dart';
 
 // TODO CONVERT TO MVVM MODEL
 class FoodDeliveryDetail extends StatefulWidget {
