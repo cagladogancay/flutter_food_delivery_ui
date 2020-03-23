@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryflutter/core/view/widgets/card/place_text_card.dart';
 import 'package:fooddeliveryflutter/food_body/food_body.dart';
-import '../food_body.dart';
 import '../profile.dart';
 import './food_view_model.dart';
 
@@ -55,10 +54,11 @@ class FoodView extends FoodViewModel {
         ),
       );
 
-  FloatingActionButton buildFloatingActionButton() {
+  Widget buildFloatingActionButton() {
     return FloatingActionButton(
       backgroundColor: currentTheme.errorColor,
       onPressed: fabButtonOnPressed,
+      heroTag: "somethingUnique",
       child: Icon(Icons.shopping_cart),
       elevation: 2.0,
     );

@@ -28,14 +28,14 @@ abstract class FoodBodyViewModel extends State<FoodBody> {
       icon: Icons.favorite_border,
     ));
     foods.add(FoodModel(
-      cardImgUrl: 'images/burgersinghclub.png',
+      cardImgUrl: 'images/burgersinghclub3.png',
       foodName: 'Burger Singh Club - Sector 50',
       tag1: "Burger",
       tag2: "American",
       icon: Icons.favorite_border,
     ));
     foods.add(FoodModel(
-      cardImgUrl: 'images/burgersinghclub.png',
+      cardImgUrl: 'images/burgersinghclub2.png',
       foodName: 'Burger Singh Club - Sector 50',
       tag1: "Burger",
       tag2: "American",

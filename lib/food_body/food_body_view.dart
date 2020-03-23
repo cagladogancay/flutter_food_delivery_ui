@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import './food_body_view_model.dart';
 import '../core/view/widgets/card/food_card.dart';
 import '../core/view/widgets/list_item/food_delivery_brain.dart';
-import '../food_delivery_detail.dart';
 import 'model/food.dart';
 
 class FoodBodyView extends FoodBodyViewModel {
