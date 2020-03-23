@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fooddeliveryflutter/food_body/model/food.dart';
 
 import './food_body.dart';
+import 'food_delivery_detail.dart';
 import 'model/foodBrain.dart';
 
 abstract class FoodBodyViewModel extends State<FoodBody> {
