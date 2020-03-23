@@ -5,6 +5,7 @@ import 'package:fooddeliveryflutter/food_body.dart';
 import 'package:fooddeliveryflutter/profile.dart';
 
 import 'card.dart';
+import 'core/view/widgets/card/place_text_card.dart';
 
 class FoodHome extends StatefulWidget {
   @override
@@ -36,18 +37,8 @@ class _FoodHomeState extends State<FoodHome> {
         elevation: 0,
         centerTitle: false,
         leading: buildMenuIconButton(),
-        title: Container(
-          padding: EdgeInsets.all(dynamicWidth(0.02)),
-          decoration: ShapeDecoration(
-              shape: StadiumBorder(),
-              color: Theme.of(context).primaryColorDark),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              buildPlaceIcon(),
-              buildTextSectorTitle(),
-            ],
-          ),
+        title: PlaceTextCard(
+          text: stringConstants.foodHomeTitleText,
         ),
         actions: <Widget>[buildSearchIconButton()],
       ),
@@ -142,22 +133,6 @@ class _FoodHomeState extends State<FoodHome> {
         color: Colors.white,
         notchMargin: 10,
       ),
-    );
-  }
-
-  Icon buildPlaceIcon() {
-    return Icon(
-      Icons.location_on,
-      color: Colors.white,
-      size: dynamicHeight(0.02),
-    );
-  }
-
-  Text buildTextSectorTitle() {
-    return Text(
-      stringConstants.foodHomeTitleText,
-      style: currentTheme.primaryTextTheme.headline6,
-      textScaleFactor: 0.8,
     );
   }
 

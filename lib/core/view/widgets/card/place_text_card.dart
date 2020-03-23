@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryflutter/core/init/constants/string_constants.dart';
 
 class PlaceTextCard extends StatelessWidget {
-  // TODO CONVERT SINGLETON
-  final StringConstants stringConstants = StringConstants();
+  final String text;
+
+  PlaceTextCard({Key key, @required this.text}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final dynamicWidth = MediaQuery.of(context).size.width * 0.02;
+    final dynamicWidth = MediaQuery.of(context).size.width * 0.01;
     final dynamicHeight = MediaQuery.of(context).size.height * 0.02;
     final currentTheme = Theme.of(context);
 
-    return Container(
-      padding: EdgeInsets.all(dynamicWidth),
-      decoration: ShapeDecoration(
-          shape: StadiumBorder(), color: Theme.of(context).primaryColorDark),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          buildPlaceIcon(dynamicHeight),
-          buildTextSectorTitle(currentTheme),
-        ],
+    return Card(
+      shape: StadiumBorder(),
+      color: Theme.of(context).primaryColorDark,
+      child: Padding(
+        padding: EdgeInsets.all(dynamicWidth),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            buildPlaceIcon(dynamicHeight),
+            buildTextSectorTitle(currentTheme),
+          ],
+        ),
       ),
     );
   }
@@ -34,7 +36,7 @@ class PlaceTextCard extends StatelessWidget {
 
   Text buildTextSectorTitle(ThemeData currentTheme) {
     return Text(
-      stringConstants.foodHomeTitleText,
+      this.text,
       style: currentTheme.primaryTextTheme.headline6,
       textScaleFactor: 0.8,
     );
