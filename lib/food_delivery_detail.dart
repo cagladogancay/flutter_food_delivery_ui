@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryflutter/food_delivery_brain.dart';
+import 'package:fooddeliveryflutter/core/view/widgets/card/food_detail_card.dart';
+import 'package:fooddeliveryflutter/food_body/model/food.dart';
 
+import 'food_body/model/foodBrain.dart';
+
+// TODO CONVERT TO MVVM MODEL
 class FoodDeliveryDetail extends StatefulWidget {
-  var imgPath;
-  String foodTitle;
-  String tag1;
-  String tag2;
+  final FoodModel model;
 
-  FoodDeliveryDetail({this.imgPath, this.foodTitle, this.tag1, this.tag2});
+  const FoodDeliveryDetail({Key key, this.model}) : super(key: key);
 
   @override
   _FoodDeliveryDetailState createState() => _FoodDeliveryDetailState();
@@ -29,13 +30,14 @@ class _FoodDeliveryDetailState extends State<FoodDeliveryDetail> {
             child: Stack(
               children: <Widget>[
                 Hero(
-                  tag: widget.imgPath,
+                  tag: widget.model.cardImgUrl,
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 292,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(widget.imgPath), fit: BoxFit.cover),
+                          image: AssetImage(widget.model.cardImgUrl),
+                          fit: BoxFit.cover),
                       border: Border(
                         bottom: BorderSide(
                           color: Colors.grey.shade600,
@@ -80,7 +82,7 @@ class _FoodDeliveryDetailState extends State<FoodDeliveryDetail> {
                             width: 209,
                             height: 70,
                             child: Text(
-                              widget.foodTitle,
+                              widget.model.foodName,
                               textAlign: TextAlign.left,
                               style:
                                   TextStyle(fontFamily: 'Khula', fontSize: 24),
@@ -100,7 +102,7 @@ class _FoodDeliveryDetailState extends State<FoodDeliveryDetail> {
                                   color: Colors.redAccent.withOpacity(0.2),
                                 ),
                                 child: Text(
-                                  widget.tag1,
+                                  widget.model.tag1,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: 'Khula',
@@ -119,7 +121,7 @@ class _FoodDeliveryDetailState extends State<FoodDeliveryDetail> {
                                   color: Colors.redAccent.withOpacity(0.2),
                                 ),
                                 child: Text(
-                                  widget.tag2,
+                                  widget.model.tag2,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: 'Khula',
@@ -256,22 +258,24 @@ class _FoodDeliveryDetailState extends State<FoodDeliveryDetail> {
                           child: Material(
                             child: ListView(
                               children: <Widget>[
-                                foodDeliveryBrain.createDetailList(
-                                    'Chicken Keema',
-                                    '60.00',
-                                    'images/chickenKeema.png'),
-                                foodDeliveryBrain.createDetailList(
-                                    'Udta Punjab 2.0 Burger',
-                                    '69.00',
-                                    'images/udtaPunjab.png'),
-                                foodDeliveryBrain.createDetailList(
-                                    'Amritsari Murgh Makhani',
-                                    '79.00',
-                                    'images/amritsariMurghMakhani.png'),
-                                foodDeliveryBrain.createDetailList(
-                                    'American Grilled',
-                                    '79.00',
-                                    'images/americanGrilled.png'),
+                                FoodDetailCard(
+                                  model: FoodModel(
+                                      foodName: 'Chicken Keema',
+                                      price: 60.00,
+                                      cardImgUrl: 'images/chickenKeema.png'),
+                                ),
+                                FoodDetailCard(
+                                  model: FoodModel(
+                                      foodName: 'Chicken Keema',
+                                      price: 60.00,
+                                      cardImgUrl: 'images/chickenKeema.png'),
+                                ),
+                                FoodDetailCard(
+                                  model: FoodModel(
+                                      foodName: 'American Grilled',
+                                      price: 79.00,
+                                      cardImgUrl: 'images/americanGrilled.png'),
+                                ),
                               ],
                             ),
                           ),

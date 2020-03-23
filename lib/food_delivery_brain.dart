@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FoodDeliveryBrain {
+class _FoodDeliveryBrain {
   createCard(String cardImgUrl, String foodName, IconData icon, String tag1,
       String tag2) {
     return Stack(
