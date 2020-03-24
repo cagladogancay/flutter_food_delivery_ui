@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryflutter/core/view/widgets/card/tag_card.dart';
-
 import '../../../../food_body/model/food.dart';
+import 'package:fooddeliveryflutter/core/init/constants/string_constants.dart';
 
 class FoodCard extends StatelessWidget {
   final FoodModel data;
@@ -92,16 +92,18 @@ class FoodCard extends StatelessWidget {
   }
 
   Widget buildDeliveryColumn(BuildContext context) {
+    StringConstants constants = StringConstants();
     return Column(
       children: <Widget>[
-        buildSubListText(context, "Delivery Time"),
+        buildSubListText(context, constants.subListText1),
         Expanded(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Spacer(),
-              Text('30-40 min', style: Theme.of(context).textTheme.headline5),
+              Text(constants.subListText2,
+                  style: Theme.of(context).textTheme.display3),
               Spacer(),
               divider
             ],
@@ -116,21 +118,24 @@ class FoodCard extends StatelessWidget {
         indent: 10,
         endIndent: 10,
       );
+
   Widget buildRatingExpanded(BuildContext context) {
+    StringConstants constants = StringConstants();
     return Column(
       children: <Widget>[
-        buildSubListText(context, "Rating"),
+        buildSubListText(context, constants.subListText3),
         Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Spacer(),
-              Text('4.3', style: Theme.of(context).textTheme.headline5),
-              Icon(Icons.star, size: 12),
+              Text(constants.ratingExpandedText1,
+                  style: Theme.of(context).textTheme.display3),
+              Icon(Icons.star, size: 14),
               Padding(
                 padding: EdgeInsets.all(2.0),
-                child: Text('(500+)',
-                    style: Theme.of(context).textTheme.headline5),
+                child: Text(constants.ratingExpandedText2,
+                    style: Theme.of(context).textTheme.display3),
               ),
               Spacer(),
             ],
@@ -145,7 +150,7 @@ class FoodCard extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.display4,
       ),
     );
   }
@@ -158,18 +163,19 @@ class FoodCard extends StatelessWidget {
   }
 
   Widget buildChineseeText(BuildContext context) {
+    StringConstants constants = StringConstants();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Text(
-        '₹₹',
-        style: Theme.of(context).textTheme.headline5,
+        constants.priceSign,
+        style: Theme.of(context).textTheme.display4,
       ),
     );
   }
 
   Widget buildCardDetailTitlePadding() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

@@ -16,7 +16,7 @@ class FoodBodyView extends FoodBodyViewModel {
       children: <Widget>[
         Expanded(child: buildListView()),
         Expanded(
-          flex: 9,
+          flex: 4,
           child: Card(
             margin: EdgeInsets.zero,
             shape: RoundedRectangleBorder(
@@ -108,7 +108,7 @@ class FoodBodyView extends FoodBodyViewModel {
     return Text(
       '58 Restaurant Available',
       textAlign: TextAlign.left,
-      style: currentTheme.textTheme.headline3,
+      style: currentTheme.textTheme.display1,
       textScaleFactor: 0.8,
     );
   }
@@ -117,9 +117,9 @@ class FoodBodyView extends FoodBodyViewModel {
     return ListView.builder(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
-      itemCount: foodDeliverys.length,
+      itemCount: foodDeliveries.length,
       itemBuilder: (context, index) => FoodDeliveryWidget(
-        data: foodDeliverys[index],
+        data: foodDeliveries[index],
       ),
     );
   }

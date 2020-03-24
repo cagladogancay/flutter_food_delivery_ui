@@ -7,7 +7,7 @@ class TagCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40,
+      width: 54,
       height: 16,
       decoration: BoxDecoration(
         color: Colors.redAccent.withOpacity(0.2),
@@ -18,7 +18,7 @@ class TagCard extends StatelessWidget {
         textAlign: TextAlign.center,
         style: Theme.of(context)
             .textTheme
-            .headline6
+            .display4
             .copyWith(color: Theme.of(context).errorColor),
       ),
     );

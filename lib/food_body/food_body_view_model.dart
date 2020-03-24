@@ -8,17 +8,31 @@ import 'model/foodBrain.dart';
 abstract class FoodBodyViewModel extends State<FoodBody> {
   // Add your state and logic here
 
-  List<FoodDeliveryBrain> foodDeliverys = [];
+  List<FoodDeliveryBrain> foodDeliveries = [];
 
   List<FoodModel> foods = [];
+
   @override
   void initState() {
     super.initState();
-    foodDeliverys.add(FoodDeliveryBrain(image: "images/all.png", type: "All"));
-    foodDeliverys
+    foodDeliveries.add(FoodDeliveryBrain(image: "images/all.png", type: "All"));
+    foodDeliveries
         .add(FoodDeliveryBrain(image: "images/chinese.png", type: "Chinese"));
-    foodDeliverys
+    foodDeliveries
         .add(FoodDeliveryBrain(image: "images/french.png", type: "French"));
+    foodDeliveries
+        .add(FoodDeliveryBrain(image: "images/indian.png", type: "Indian"));
+    foodDeliveries
+        .add(FoodDeliveryBrain(image: "images/american.png", type: "American"));
+    foodDeliveries.add(FoodDeliveryBrain(image: "images/all.png", type: "All"));
+    foodDeliveries
+        .add(FoodDeliveryBrain(image: "images/chinese.png", type: "Chinese"));
+    foodDeliveries
+        .add(FoodDeliveryBrain(image: "images/french.png", type: "French"));
+    foodDeliveries
+        .add(FoodDeliveryBrain(image: "images/indian.png", type: "Indian"));
+    foodDeliveries
+        .add(FoodDeliveryBrain(image: "images/american.png", type: "American"));
 
     foods.add(FoodModel(
       cardImgUrl: 'images/burgersinghclub.png',
@@ -28,15 +42,8 @@ abstract class FoodBodyViewModel extends State<FoodBody> {
       icon: Icons.favorite_border,
     ));
     foods.add(FoodModel(
-      cardImgUrl: 'images/burgersinghclub3.png',
-      foodName: 'Burger Singh Club - Sector 50',
-      tag1: "Burger",
-      tag2: "American",
-      icon: Icons.favorite_border,
-    ));
-    foods.add(FoodModel(
-      cardImgUrl: 'images/burgersinghclub2.png',
-      foodName: 'Burger Singh Club - Sector 50',
+      cardImgUrl: 'images/lapinozpizza.png',
+      foodName: 'La Pinoz Pizza - Sector 50',
       tag1: "Burger",
       tag2: "American",
       icon: Icons.favorite_border,

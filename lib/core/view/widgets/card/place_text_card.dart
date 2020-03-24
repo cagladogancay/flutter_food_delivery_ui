@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class PlaceTextCard extends StatelessWidget {
   final String text;
 
+  //constructor oluşturulmuş.Appbar title
   PlaceTextCard({Key key, @required this.text}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class PlaceTextCard extends StatelessWidget {
     );
   }
 
+// appbar card içindeki icon
   Icon buildPlaceIcon(double size) {
     return Icon(
       Icons.location_on,
@@ -35,10 +37,8 @@ class PlaceTextCard extends StatelessWidget {
   }
 
   Text buildTextSectorTitle(ThemeData currentTheme) {
-    return Text(
-      this.text,
-      textAlign: TextAlign.center,
-      style: currentTheme.primaryTextTheme.headline5,
-    );
+    return Text(this.text,
+        textAlign: TextAlign.center,
+        style: currentTheme.primaryTextTheme.display3);
   }
 }

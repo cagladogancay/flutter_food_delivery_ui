@@ -4,14 +4,16 @@ import './food_view_model.dart';
 import '../core/view/widgets/card/place_text_card.dart';
 import '../food_body/food_body.dart';
 import '../profile/profile.dart';
+import '../core/init/constants/string_constants.dart';
 
 class FoodView extends FoodViewModel {
   ThemeData get currentTheme => Theme.of(context);
   double dynamicHeight(double val) => MediaQuery.of(context).size.height * val;
   double dynamicWidth(double val) => MediaQuery.of(context).size.width * val;
-
+  StringConstants constants = StringConstants();
   @override
   Widget build(BuildContext context) {
+    //Appbar tanımı
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -44,13 +46,13 @@ class FoodView extends FoodViewModel {
         color: Colors.white,
         child: TabBar(
           tabs: <Widget>[
-            Tab(icon: Icon(Icons.home), text: "Home"),
-            Tab(icon: Icon(Icons.person), text: "Profile")
+            Tab(icon: Icon(Icons.home), text: constants.bottomNavItem1),
+            Tab(icon: Icon(Icons.person), text: constants.bottomNavItem2),
           ],
           indicatorColor: Colors.transparent,
           labelColor: currentTheme.errorColor,
           unselectedLabelColor: currentTheme.dividerColor,
-          labelStyle: currentTheme.textTheme.headline5
+          labelStyle: currentTheme.textTheme.display3
               .copyWith(fontWeight: FontWeight.bold),
         ),
       );
@@ -65,6 +67,7 @@ class FoodView extends FoodViewModel {
     );
   }
 
+  //Appbar leading icon
   IconButton buildMenuIconButton() {
     return IconButton(
       icon: Icon(
@@ -75,6 +78,7 @@ class FoodView extends FoodViewModel {
     );
   }
 
+//app bar search
   IconButton buildSearchIconButton() {
     return IconButton(
       icon: Icon(Icons.search, color: Colors.white),

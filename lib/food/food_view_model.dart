@@ -11,6 +11,5 @@ abstract class FoodViewModel extends State<Food> {
 
   void searchIconOnPressed() {}
   void menuIconOnPressed() {}
-  // TODO: Fab button use for action
   void fabButtonOnPressed() {}
 }

@@ -9,14 +9,17 @@ class FoodDeliveryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          height: 63,
-          width: 63,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.white, width: 2),
-            borderRadius: BorderRadius.circular(63),
-            image: DecorationImage(
-                image: AssetImage(data.image), fit: BoxFit.cover),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 63,
+            width: 63,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 2),
+              borderRadius: BorderRadius.circular(63),
+              image: DecorationImage(
+                  image: AssetImage(data.image), fit: BoxFit.cover),
+            ),
           ),
         ),
         Expanded(
