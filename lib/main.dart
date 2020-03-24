@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddeliveryflutter/food_home.dart';
+
+import 'core/init/themes/theme.dart';
+import 'food/food.dart';
 
 void main() => runApp(FoodDelivery());
 
@@ -10,7 +12,8 @@ class FoodDelivery extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Delivery App',
-      home: FoodHome(),
+      theme: myTheme,
+      home: Food(),
     );
   }
 }
